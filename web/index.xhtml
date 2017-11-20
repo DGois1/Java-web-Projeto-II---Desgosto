@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="CSS/styles.css" />
+    </h:head>
+    <h:body>
+        <h:form id="login">
+            <p:growl id="gro" life="4000" showSummary="true" showDetail="true"/>
+            <h:outputText style="color: blue; font-size: 30px; margin-left: 160px;" value="Login"  /> 
+            <h:panelGrid style="margin-top: 50px" id="grid" columns="2" cellpadding="6">
+                    <h:outputLabel for="username" value="Username:" />
+                    <p:inputText id="nome" value="#{controladoUser.email}" required="true" label="username" />
+
+                    <h:outputLabel for="password" value="Password:" />
+                    <p:password id="senha" value="#{controladoUser.senha}" required="true" label="password" />
+                    <p:commandButton value="Login" id="button" action="#{controladoUser.login()}" ajax="false"/>
+                </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+
