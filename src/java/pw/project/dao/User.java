@@ -7,6 +7,7 @@ package pw.project.dao;
 
 import pw.project.controladores.ControladorUsuario;
 import pw.project.necogios.Usuario;
+import pw.project.repositorios.RepositorioUsuario;
 
 /**
  *
@@ -15,12 +16,20 @@ import pw.project.necogios.Usuario;
 public class User {
     public static void main(String[] args) {
         ControladorUsuario user = new ControladorUsuario();
-        Usuario a = new Usuario();
-        a.setNome("Denis1");
+        RepositorioUsuario p = new RepositorioUsuario();
+        Usuario a = p.login("13@");
+      /*  a.setNome("Denis1");
         a.setCpf("086.912.544-33");
         a.setEmail("denisgm1010@hotmail.com");
         a.setSenha("fodase0");
         a.setCargo("adm");
-        user.cadastroUser(a);
+        user.cadastroUser(a);*/
+      
+      System.out.print(a.getNome());
+       
+       
+        
+        
+        
     }
 }

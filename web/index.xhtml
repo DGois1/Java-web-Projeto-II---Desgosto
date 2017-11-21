@@ -18,7 +18,7 @@
 
                     <h:outputLabel for="password" value="Password:" />
                     <p:password id="senha" value="#{controladoUser.senha}" required="true" label="password" />
-                    <p:commandButton value="Login" id="button" action="#{controladoUser.login()}" ajax="false"/>
+                    <p:commandButton value="Login" id="button" action="#{controladoUser.login(controladoUser.email,controladoUser.senha)}" ajax="false"/>
                 </h:panelGrid>
         </h:form>
     </h:body>

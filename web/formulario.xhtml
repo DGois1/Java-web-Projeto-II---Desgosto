@@ -56,13 +56,13 @@
                                 <div class="ui-g">
                                     <div class="ui-g-12">
                                         <h:outputText value="Ultima Menstruação:" />
-                                        <p:calendar id="button" value="#{mulher.andCiclo}" showOn="button" />
+                                        <p:calendar id="button" value="#{cM.date}" showOn="button" />
                                     </div>
                                 </div>
                                
                            
                             </h:panelGrid>
-                            <p:commandButton value="Cadastrar" action="#{ControladorMulher.cadastroMulher(mulher)}" ajax="false"/>
+                            <p:commandButton value="Cadastrar" action="#{cM.cadastroMulher(mulher)}" ajax="false"/>
                         </p:panel>
                     </h:form>
                     

@@ -11,7 +11,7 @@
    
    <mapping class="pw.project.necogios.Mulher"/>
    <mapping class="pw.project.necogios.Usuario"/>
-   <mapping class="pw.project.necogios.Consulta"/>
+   <mapping class="pw.project.necogios.Grupo"/>
    
   </session-factory>
 </hibernate-configuration>

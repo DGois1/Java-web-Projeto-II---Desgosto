@@ -1,5 +1,6 @@
 package pw.project.necogios;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -25,39 +26,46 @@ import org.hibernate.annotations.CascadeType;
 @RequestScoped
 public class Grupo {
    @Id
-   @GeneratedValue
-   @Column(name="id")
-   private int id;
+   private int idLider;
    
    @ManyToMany
    @Cascade(value = CascadeType.DELETE)
-   private List<Usuario> grupo;
-   
-   @ManyToOne
-   private Usuario lider;
+   private List<Usuario> estagiarios;
    
    @Column(name="nomeGrupo", length = 100)
    private String nomeGrupo;
+
+    public Grupo() {
+        this.estagiarios = new ArrayList<Usuario>();
+    }
+    
+    
+
+    public int getIdLider() {
+        return idLider;
+    }
+
+    public void setIdLider(int idLider) {
+        this.idLider = idLider;
+    }
+
+    public List<Usuario> getEstagiarios() {
+        return estagiarios;
+    }
+
+    public void setEstagiarios(List<Usuario> estagiarios) {
+        this.estagiarios = estagiarios;
+    }
+
+    public String getNomeGrupo() {
+        return nomeGrupo;
+    }
+
+    public void setNomeGrupo(String nomeGrupo) {
+        this.nomeGrupo = nomeGrupo;
+    }
    
-    public Grupo(List<Usuario> grupo, Usuario lider) {
-        this.grupo = grupo;
-        this.lider = lider;
-    }
+ 
    
-    public List<Usuario> getGrupo() {
-        return grupo;
-    }
-
-    public void setGrupo(List<Usuario> grupo) {
-        this.grupo = grupo;
-    }
-
-    public Usuario lider() {
-        return lider;
-    }
-
-    public void setlider(Usuario lider) {
-        this.lider = lider;
-    }
    
 }

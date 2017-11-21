@@ -18,7 +18,7 @@ public class RepositorioGrupo implements InterfaceGeral<Grupo> {
     @Override
     public Grupo search(int codigo) {
         try{
-        return (Grupo)((List<Grupo>)DaoManagerHiber.recover("from Consulta where id="+codigo+"")).get(0);
+        return (Grupo)((List<Grupo>)DaoManagerHiber.recover("from Grupo where idlider="+codigo)).get(0);
         }catch(IndexOutOfBoundsException e){
             return null;
         }

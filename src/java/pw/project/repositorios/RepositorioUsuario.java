@@ -9,7 +9,7 @@ import pw.project.necogios.Usuario;
  *
  * @author Grupo Capitão America
  */
-public class RepositorioUsuario implements InterfaceGeral<Usuario>{
+public class RepositorioUsuario implements InterfaceGeral<Usuario> {
 
     @Override
     public void persist(Usuario t) {
@@ -49,7 +49,7 @@ public class RepositorioUsuario implements InterfaceGeral<Usuario>{
          return DaoManagerHiber.recover("from Usuario");
     }
     
-    public Usuario login (String login, String senha){
+    public Usuario login (String login){
        try{
         return (Usuario)((List<Usuario>)DaoManagerHiber.recover("from Usuario where email='"+login+"'")).get(0);
         }catch(IndexOutOfBoundsException e){

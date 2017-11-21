@@ -5,7 +5,10 @@
  */
 package pw.project.controladores;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import pw.project.necogios.Mulher;
@@ -19,14 +22,16 @@ import pw.project.repositorios.RepositorioMulher;
 @SessionScoped
 public class ControladorMulher {
     
+    Date date;
     RepositorioMulher rm;
 
     public ControladorMulher() {
         this.rm = new RepositorioMulher();
     }
 
-    public void cadastroMulher(Mulher m){
-        rm.persist(m);
+    public void cadastroMulher(Mulher m) {
+       m.setAndCilco(date);
+       rm.persist(m);
     }
     public void atualizar(Mulher m){
         rm.update(m);
@@ -46,4 +51,15 @@ public class ControladorMulher {
     public ArrayList<Mulher> lista (){
         return (ArrayList<Mulher>) rm.listAll();
     }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+    
+    
+    
 }
