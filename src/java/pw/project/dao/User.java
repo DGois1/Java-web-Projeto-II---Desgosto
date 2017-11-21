@@ -16,10 +16,10 @@ public class User {
     public static void main(String[] args) {
         ControladorUsuario user = new ControladorUsuario();
         Usuario a = new Usuario();
-        a.setNome("Flavio");
-        a.setCpf("111.475.524-95");
-        a.setEmail("flavioedez@hotmail.com");
-        a.setSenha("050615");
+        a.setNome("Denis1");
+        a.setCpf("086.912.544-33");
+        a.setEmail("denisgm1010@hotmail.com");
+        a.setSenha("fodase0");
         a.setCargo("adm");
         user.cadastroUser(a);
     }

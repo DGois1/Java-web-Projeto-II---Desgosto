@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="west" size="200" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+                        </p:submenu>
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    
+                    <h:form id="usuario">
+                        <p:panel header="Cadastro Usuario" style="width:600px; margin:auto">
+                            <h:panelGrid id="cleinte" columns="3" >
+                                <h:outputText value="Nome Completo: *"/>
+                                <p:inputText id="isNome" value="#{usu.nome}" required="true" requiredMessage="Digite o nome"/>
+                                <p:message for="isNome"/>
+                                
+                                <h:outputText value="CPF: *"/>
+                                <p:inputText id="isCPF" value="#{usu.cpf}" required="true" requiredMessage="Digite o cpf"/>
+                                <p:message for="isCPF"/>
+
+                                <h:outputText value="Email: *"/>
+                                <p:inputText id="isEmail" value="#{usu.email}" required="true" requiredMessage="Digite o email"/>
+                                <p:message for="isEmail"/>
+
+                                <h:outputText value="Senha: *"/>
+                                <p:password id="isSenha" value="#{usu.senha}" required="true" requiredMessage="Digite a senha"/>
+                                <p:message for="isSenha"/>
+                                
+                                <p:outputLabel for="console" value="Cargo:" />
+                                <p:selectOneMenu id="console" value="#{usu.cargo}" style="width:185px">
+                                    <f:selectItem itemLabel="Selecione o Cargo" itemValue="" />
+                                    <f:selectItem itemLabel="Administrativo" itemValue="adm" />
+                                    <f:selectItem itemLabel="Estagiario" itemValue="estagiario" />
+                                    <f:selectItem itemLabel="Lider" itemValue="lider" />
+                                </p:selectOneMenu>
+
+                            </h:panelGrid>
+                            <p:commandButton value="Cadastrar" action="#{controladoUser.cadastroUser(usu)}" ajax="false"/>
+                        </p:panel>
+                    </h:form>
+                    
+                    
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

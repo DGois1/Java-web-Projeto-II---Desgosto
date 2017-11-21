@@ -5,7 +5,7 @@
 package pw.project.dao;
 
 import java.util.List;
-import pw.project.necogios.Consulta;
+import pw.project.necogios.Grupo;
 import pw.project.necogios.Mulher;
 import pw.project.necogios.Usuario;
 import org.hibernate.Criteria;

@@ -62,7 +62,7 @@ public class ControladorUsuario implements Serializable{
        
        
        
-       return "welcomePrimefaces.xhtml";
+       return "home.xhtml";
     }
 
     public RepositorioUsuario getRp() {

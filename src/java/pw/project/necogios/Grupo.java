@@ -20,10 +20,10 @@ import org.hibernate.annotations.CascadeType;
  */
 
 @Entity
-@Table(name="Consulta")
-@ManagedBean(name = "consulta")
+@Table(name="Grupo")
+@ManagedBean(name = "grupo")
 @RequestScoped
-public class Consulta {
+public class Grupo {
    @Id
    @GeneratedValue
    @Column(name="id")
@@ -34,15 +34,14 @@ public class Consulta {
    private List<Usuario> grupo;
    
    @ManyToOne
-   private Mulher paciente;
+   private Usuario lider;
    
-   @Column(name="data")
-   private Date data;
-
-    public Consulta(List<Usuario> grupo, Mulher paciente, Date data) {
+   @Column(name="nomeGrupo", length = 100)
+   private String nomeGrupo;
+   
+    public Grupo(List<Usuario> grupo, Usuario lider) {
         this.grupo = grupo;
-        this.paciente = paciente;
-        this.data = data;
+        this.lider = lider;
     }
    
     public List<Usuario> getGrupo() {
@@ -53,21 +52,12 @@ public class Consulta {
         this.grupo = grupo;
     }
 
-    public Mulher getPaciente() {
-        return paciente;
+    public Usuario lider() {
+        return lider;
     }
 
-    public void setPaciente(Mulher paciente) {
-        this.paciente = paciente;
+    public void setlider(Usuario lider) {
+        this.lider = lider;
     }
-
-    public Date getData() {
-        return data;
-    }
-
-    public void setData(Date data) {
-        this.data = data;
-    }
-   
    
 }

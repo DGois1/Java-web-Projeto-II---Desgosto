@@ -30,17 +30,21 @@ public class Mulher {
    @Column(name = "idade", length = 60)
    private String idade;
    
-   @Column(name = "cilco", length = 60)
+   @Column(name = "ciclo", length = 60)
    private String ciclo;
    
    @Column(name = "andCiclo")
    private Date andCiclo;
 
-    public Mulher(String nome, String idade, String ciclo, Date andCiclo) {
+    public Mulher(int id, String nome, String idade, String ciclo, Date andCiclo) {
+        this.id = id;
         this.nome = nome;
         this.idade = idade;
         this.ciclo = ciclo;
         this.andCiclo = andCiclo;
+    }
+    public Mulher() {
+        
     }
 
     public int getId() {

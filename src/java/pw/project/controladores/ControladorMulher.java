@@ -25,7 +25,7 @@ public class ControladorMulher {
         this.rm = new RepositorioMulher();
     }
 
-    public void cadastroUser(Mulher m){
+    public void cadastroMulher(Mulher m){
         rm.persist(m);
     }
     public void atualizar(Mulher m){

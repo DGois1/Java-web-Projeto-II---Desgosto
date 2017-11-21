@@ -3,8 +3,8 @@ package pw.project.controladores;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import pw.project.necogios.Consulta;
-import pw.project.repositorios.RepositorioConsulta;
+import pw.project.necogios.Grupo;
+import pw.project.repositorios.RepositorioGrupo;
 
 /**
  *
@@ -14,31 +14,31 @@ import pw.project.repositorios.RepositorioConsulta;
 @SessionScoped
 public class ControladorConsulta {
     
-    RepositorioConsulta rc;
+    RepositorioGrupo rc;
 
     public ControladorConsulta() {
-        this.rc = new RepositorioConsulta();
+        this.rc = new RepositorioGrupo();
     }
     
-     public void cadastroUser(Consulta c){
+     public void cadastroUser(Grupo c){
         
     }
-    public void atualizar(Consulta c){
+    public void atualizar(Grupo c){
         
     }
-    public void deletar(Consulta c){
+    public void deletar(Grupo c){
         
     }
     
-    public Consulta busca (String nome){
+    public Grupo busca (String nome){
         return null;
     }
     
-    public Consulta busca2 (int codigo){
+    public Grupo busca2 (int codigo){
         return null;
     }
     
-    public ArrayList<Consulta> lista (){
+    public ArrayList<Grupo> lista (){
         return null;
     }
 }
