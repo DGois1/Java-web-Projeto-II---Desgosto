@@ -9,9 +9,14 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 import pw.project.necogios.Mulher;
+import pw.project.necogios.Usuario;
 import pw.project.repositorios.RepositorioMulher;
 
 /**
@@ -22,6 +27,8 @@ import pw.project.repositorios.RepositorioMulher;
 @SessionScoped
 public class ControladorMulher {
     
+    Usuario ur = (Usuario) ((HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true)).getAttribute("usuarioLogado");
+
     Date date;
     RepositorioMulher rm;
 
@@ -30,8 +37,40 @@ public class ControladorMulher {
     }
 
     public void cadastroMulher(Mulher m) {
-       m.setAndCilco(date);
-       rm.persist(m);
+        
+        m.setLider(ur);
+        
+        m.setAndCiclo(date);
+        rm.persist(m);
+        Mulher mu = rm.searchTxt(m.getNome());
+        
+        //Date a = uso.get(i).getDataM();
+        String formato = "dd/MM/yyyy";
+        SimpleDateFormat dataFormatada = new SimpleDateFormat(formato);
+        
+        Date dataN = m.getAndCiclo();
+        JOptionPane.showMessageDialog(null, dataN);
+        
+        double soma = 0;
+        if (m.getCiclo().equals("Regular")) {
+            for (int v = 0; v < 28; v++) {
+                soma += (24 * 60 * 60 * 1000);
+            }
+            dataN.setTime((long) (dataN.getTime() + soma));
+            //System.out.println("FODASE" + dataN);
+            //JOptionPane.showMessageDialog(null, dataN);
+        } else if (m.getCiclo().equals("Irregular")) {
+            for (int b = 0; b < 23; b++) {
+                soma += (24 * 60 * 60 * 1000);
+            }
+            dataN.setTime((long) (dataN.getTime() + soma));
+            //System.out.println("FODASE" + dataN);
+            //JOptionPane.showMessageDialog(null, dataN);
+        }
+        mu.setNovoCiclo(dataN);
+        JOptionPane.showMessageDialog(null, dataN);
+       
+        rm.update(mu);
     }
     public void atualizar(Mulher m){
         rm.update(m);
@@ -48,8 +87,11 @@ public class ControladorMulher {
         return rm.search(codigo);
     }
     
-    public ArrayList<Mulher> lista (){
-        return (ArrayList<Mulher>) rm.listAll();
+    public List<Mulher> lista (){
+        return (List<Mulher>) rm.listAll();
+    }
+    public List<Mulher> listaLider (){
+        return (List<Mulher>) rm.listLider(ur);
     }
 
     public Date getDate() {

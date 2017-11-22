@@ -3,6 +3,7 @@ import java.util.List;
 import pw.project.dao.DaoManagerHiber;
 import pw.project.interfaces.InterfaceGeral;
 import pw.project.necogios.Mulher;
+import pw.project.necogios.Usuario;
 
 /**
  *
@@ -46,6 +47,12 @@ public class RepositorioMulher implements InterfaceGeral<Mulher>{
     @Override
     public List<Mulher> listAll() {
          return DaoManagerHiber.recover("from Mulher");
+    }
+    
+    
+    public List<Mulher> listLider(Usuario lider) {
+         return DaoManagerHiber.recover("from Mulher where lider_id="+lider.getId());
+         
     }
     
 }

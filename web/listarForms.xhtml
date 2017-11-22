@@ -3,7 +3,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <f:view contentType="text/html">
         <h:head>
@@ -14,19 +14,36 @@
         </h:head>
 
         <h:body>
-            
-            <p:panel id="horizontal" header="#{uso.nome}" toggleable="true" toggleOrientation="horizontal">
-                <h:panelGrid columns="2" cellpadding="10">
-                    <h:outputText value="IDADE: #{uso.idade}" />
-                    <h:outputText value="CICLO: #{uso.ciclo}" />
-                    <h:outputText value="ULTIMA MENSTRUAÇÃO: #{uso.andCiclo}" />
-                    
-                    <p:outputLabel for="button" value="PRÓXIMA MENSTRUAÇÃO:" />
-                    <p:calendar id="button" value="#{calendarView.date3}" showOn="button" />
-                    
-                </h:panelGrid>
-            </p:panel>
+            <!---
+            <p:menu>
+                <p:submenu label="MENU">
+                    <p:menuitem value="HOME" url="home.xhtml" />
+                    <p:menuitem value="Novo Formulario" url="formulario.xhtml" />
+                    <p:menuitem value="Novo Estagiario" url="novoEstagiario.xhtml" />
+                    <p:menuitem value="Novo Administrador" url="novoAdmin.xhtml" />
+                    <p:menuitem value="Listar Formularios" url="listarForms.xhtml" />
+                </p:submenu>
+            </p:menu>
+            -->
+            <c:forEach var="item" items="#{cM.lista()}">
+                <p:panelGrid columns="2">
+                    <h:outputText value="Name:" />
+                    <h:outputText value="#{item.nome}" />
 
+                    <h:outputText value="Idade:" />
+                    <h:outputText value="#{item.idade}" />
+
+                    <h:outputText value="Ciclo:" />
+                    <h:outputText value="#{item.ciclo}" />
+
+                    <h:outputText value="Ultima Menstruação:" />
+                    <h:outputText value="#{item.andCiclo}" />
+
+                    <h:outputText value="Proxima Menstruação:" />
+                    <h:outputText value="#{item.novoCiclo}" />
+                </p:panelGrid>
+            </c:forEach>
+            
         </h:body>
 
     </f:view>

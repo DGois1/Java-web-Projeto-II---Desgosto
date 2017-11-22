@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
@@ -26,35 +27,34 @@ import org.hibernate.annotations.CascadeType;
 @RequestScoped
 public class Grupo {
    @Id
-   private int idLider;
+   @GeneratedValue
+   private int id;
    
-   @ManyToMany
+   @ManyToOne
    @Cascade(value = CascadeType.DELETE)
-   private List<Usuario> estagiarios;
+   private Usuario estagiarios;
+   
+   @ManyToOne
+   @Cascade(value = CascadeType.DELETE)
+   private Usuario lider;
    
    @Column(name="nomeGrupo", length = 100)
    private String nomeGrupo;
 
-    public Grupo() {
-        this.estagiarios = new ArrayList<Usuario>();
-    }
-    
-    
-
-    public int getIdLider() {
-        return idLider;
+    public int getId() {
+        return id;
     }
 
-    public void setIdLider(int idLider) {
-        this.idLider = idLider;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public List<Usuario> getEstagiarios() {
-        return estagiarios;
+    public Usuario getLider() {
+        return lider;
     }
 
-    public void setEstagiarios(List<Usuario> estagiarios) {
-        this.estagiarios = estagiarios;
+    public void setLider(Usuario lider) {
+        this.lider = lider;
     }
 
     public String getNomeGrupo() {
@@ -63,6 +63,14 @@ public class Grupo {
 
     public void setNomeGrupo(String nomeGrupo) {
         this.nomeGrupo = nomeGrupo;
+    }
+
+    public Usuario getEstagiarios() {
+        return estagiarios;
+    }
+
+    public void setEstagiarios(Usuario estagiarios) {
+        this.estagiarios = estagiarios;
     }
    
  

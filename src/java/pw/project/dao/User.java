@@ -6,7 +6,9 @@
 package pw.project.dao;
 
 import pw.project.controladores.ControladorUsuario;
+import pw.project.necogios.Grupo;
 import pw.project.necogios.Usuario;
+import pw.project.repositorios.RepositorioGrupo;
 import pw.project.repositorios.RepositorioUsuario;
 
 /**
@@ -25,11 +27,13 @@ public class User {
         a.setCargo("adm");
         user.cadastroUser(a);*/
       
-      System.out.print(a.getNome());
+        System.out.print(a.getNome());
        
        
         
-        
+        RepositorioGrupo RG = new RepositorioGrupo();
+        Grupo g = RG.search(5);
+        System.out.print(g.getNomeGrupo());
         
     }
 }

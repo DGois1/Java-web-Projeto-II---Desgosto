@@ -20,7 +20,16 @@ import pw.project.repositorios.RepositorioUsuario;
 @SessionScoped
 public class ControladorUsuario implements Serializable{
     
-   private  RepositorioUsuario rp;
+   int log;
+    public int getLog() {
+        return log;
+    }
+    public void setLog(int log) {
+        this.log = log;
+    }
+   
+    
+   private RepositorioUsuario rp;
    private RepositorioGrupo rg;
    
    private String senha;
@@ -39,23 +48,20 @@ public class ControladorUsuario implements Serializable{
              rp.persist(u);
              Usuario b = rp.searchTxt(u.getNome());
              Grupo g = new Grupo();
-             g.setIdLider(b.getId());
+             g.setLider(b);
              g.setNomeGrupo(b.getNome());
-             g.getEstagiarios().add(b);
+             g.setEstagiarios(b);
              rg.persist(g);
              
         }else if(u.getCargo().equals("estagiario")){
              rp.persist(u);
              Usuario b = rp.searchTxt(u.getNome());
-             Grupo t = rg.search(ur.getId());
-
-             if(t == null){
-                JOptionPane.showMessageDialog(null, "erro!"); 
-             }else{
-                 t.getEstagiarios().add(b);
-                 rg.update(t);
-             }
-             
+             Grupo g = new Grupo();
+             g.setLider(b);
+             g.setNomeGrupo(b.getNome());
+             g.setEstagiarios(b);
+             rg.persist(g);
+          
         }else if (u.getCargo().equals("adm")){
           rp.persist(u); 
         }
@@ -92,6 +98,19 @@ public class ControladorUsuario implements Serializable{
        ((HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(true)).setAttribute("usuarioLogado", uso);
        
        JOptionPane.showMessageDialog(null, uso.getId());
+       
+       if(uso.getCargo().equals("estagiario")){
+            log = 1;
+        }
+        else if(uso.getCargo().equals("lider")){
+            log = 2;
+        }
+        else if(uso.getCargo().equals("adm")){
+            log = 3;
+        }
+        else{
+            log = 0;
+        }
        return "home.xhtml";
     }
  

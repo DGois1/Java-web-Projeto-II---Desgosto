@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -35,13 +36,21 @@ public class Mulher {
    
    @Column(name = "andCiclo")
    private Date andCiclo;
+   
+   @Column(name = "novoCiclo")
+   private Date novoCiclo;
+   
+   @OneToOne
+   private Usuario lider;
 
-    public Mulher(int id, String nome, String idade, String ciclo, Date andCiclo) {
+    public Mulher(int id, String nome, String idade, String ciclo, Date andCiclo, Date novoCiclo, Usuario lider) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
         this.ciclo = ciclo;
         this.andCiclo = andCiclo;
+        this.novoCiclo = novoCiclo;
+        this.lider = lider;
     }
     public Mulher() {
         
@@ -79,13 +88,31 @@ public class Mulher {
         this.ciclo = ciclo;
     }
 
-    public Date getAndCilco() {
+    public Date getAndCiclo() {
         return andCiclo;
     }
 
-    public void setAndCilco(Date andCiclo) {
+    public void setAndCiclo(Date andCiclo) {
         this.andCiclo = andCiclo;
     }
+
+    public Date getNovoCiclo() {
+        return novoCiclo;
+    }
+
+    public void setNovoCiclo(Date novoCiclo) {
+        this.novoCiclo = novoCiclo;
+    }
+
+    public Usuario getLider() {
+        return lider;
+    }
+
+    public void setLider(Usuario estagiario) {
+        this.lider = lider;
+    }
+    
+    
    
    
 }
