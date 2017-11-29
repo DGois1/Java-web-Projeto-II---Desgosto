@@ -15,8 +15,10 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
+import pw.project.necogios.Grupo;
 import pw.project.necogios.Mulher;
 import pw.project.necogios.Usuario;
+import pw.project.repositorios.RepositorioGrupo;
 import pw.project.repositorios.RepositorioMulher;
 
 /**
@@ -31,6 +33,7 @@ public class ControladorMulher {
 
     Date date;
     RepositorioMulher rm;
+    RepositorioGrupo rg;
 
     public ControladorMulher() {
         this.rm = new RepositorioMulher();
@@ -38,7 +41,17 @@ public class ControladorMulher {
 
     public void cadastroMulher(Mulher m) {
         
-        m.setLider(ur);
+        JOptionPane.showMessageDialog(null, ur.getId());
+  
+        List<Grupo> g = rg.listAll();
+        Grupo a = null;
+        for (int i = 0; i < g.size(); i++) {
+            if(g.get(i).getLider().getId() == ur.getId()){
+                a = g.get(i);
+            }
+        }
+        JOptionPane.showMessageDialog(null, g.get(0));
+        //m.setLider(a.getLider());
         
         m.setAndCiclo(date);
         rm.persist(m);
@@ -71,6 +84,7 @@ public class ControladorMulher {
         JOptionPane.showMessageDialog(null, dataN);
        
         rm.update(mu);
+
     }
     public void atualizar(Mulher m){
         rm.update(m);
@@ -91,7 +105,17 @@ public class ControladorMulher {
         return (List<Mulher>) rm.listAll();
     }
     public List<Mulher> listaLider (){
-        return (List<Mulher>) rm.listLider(ur);
+        
+         List<Mulher> listaL = rm.listAll();
+        
+         List<Mulher> listaN = new ArrayList<>();
+         for (int i = 0; i < listaL.size(); i++) {
+            if(listaL.get(i).getLider().getId() == ur.getId()){
+                listaN.add(listaL.get(i));
+            }
+        }
+         
+        return listaN;
     }
 
     public Date getDate() {

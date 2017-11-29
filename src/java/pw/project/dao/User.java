@@ -5,6 +5,7 @@
  */
 package pw.project.dao;
 
+import java.util.List;
 import pw.project.controladores.ControladorUsuario;
 import pw.project.necogios.Grupo;
 import pw.project.necogios.Usuario;
@@ -27,13 +28,13 @@ public class User {
         a.setCargo("adm");
         user.cadastroUser(a);*/
       
-        System.out.print(a.getNome());
+        //System.out.print(a.getNome());
        
        
         
         RepositorioGrupo RG = new RepositorioGrupo();
-        Grupo g = RG.search(5);
-        System.out.print(g.getNomeGrupo());
+       List<Grupo> g = RG.listAll();
+        System.out.print(g.get(0).getNomeGrupo());
         
     }
 }

@@ -25,24 +25,83 @@
                 </p:submenu>
             </p:menu>
             -->
-            <c:forEach var="item" items="#{cM.lista()}">
-                <p:panelGrid columns="2">
-                    <h:outputText value="Name:" />
-                    <h:outputText value="#{item.nome}" />
+            <c:if  test="${controladoUser.log == 2}">
+                
+                <p:layout fullPage="true">
+                    <p:layoutUnit position="west" size="200" header="Esconder" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="MENU">
+                                <p:menuitem value="HOME" url="home.xhtml" />
+                                <p:menuitem value="Novo Estagiario" url="novoEstagiario.xhtml" />
+                                <p:menuitem value="Listar Formularios" url="listarForms.xhtml" />
+                            </p:submenu>
+                        </p:menu>
+                    </p:layoutUnit>
+                    <p:layoutUnit position="center">
+                        <c:forEach var="item" items="#{cM.listaLider()}">
+                            <p:panelGrid columns="2">
+                                <h:outputText value="Name:" />
+                                <h:outputText value="#{item.nome}" />
 
-                    <h:outputText value="Idade:" />
-                    <h:outputText value="#{item.idade}" />
+                                <h:outputText value="Idade:" />
+                                <h:outputText value="#{item.idade}" />
 
-                    <h:outputText value="Ciclo:" />
-                    <h:outputText value="#{item.ciclo}" />
+                                <h:outputText value="Ciclo:" />
+                                <h:outputText value="#{item.ciclo}" />
 
-                    <h:outputText value="Ultima Menstruação:" />
-                    <h:outputText value="#{item.andCiclo}" />
+                                <h:outputText value="Ultima Menstruação:" />
+                                <h:outputText value="#{item.andCiclo}" />
 
-                    <h:outputText value="Proxima Menstruação:" />
-                    <h:outputText value="#{item.novoCiclo}" />
-                </p:panelGrid>
-            </c:forEach>
+                                <h:outputText value="Proxima Menstruação:" />
+                                <h:outputText value="#{item.novoCiclo}" />
+                            </p:panelGrid>
+                        </c:forEach>
+                    </p:layoutUnit>
+                </p:layout>
+                
+                
+                
+            </c:if>
+            
+            <c:if  test="${controladoUser.log == 3}">
+                
+                <p:layout fullPage="true">
+                    <p:layoutUnit position="west" size="200" header="Esconder" collapsible="true">
+                        <p:menu>
+                            <p:submenu label="MENU">
+                                <p:menuitem value="HOME" url="home.xhtml" />
+                                <p:menuitem value="Novo Administrador" url="novoAdmin.xhtml" />
+                                <p:menuitem value="Listar Formularios" url="listarForms.xhtml" />
+                            </p:submenu>
+                        </p:menu>
+                    </p:layoutUnit>
+                    <p:layoutUnit position="center">
+                        <c:forEach var="item" items="#{cM.lista()}">
+                            <p:panelGrid columns="2">
+                                <h:outputText value="Name:" />
+                                <h:outputText value="#{item.nome}" />
+
+                                <h:outputText value="Idade:" />
+                                <h:outputText value="#{item.idade}" />
+
+                                <h:outputText value="Ciclo:" />
+                                <h:outputText value="#{item.ciclo}" />
+
+                                <h:outputText value="Ultima Menstruação:" />
+                                <h:outputText value="#{item.andCiclo}" />
+
+                                <h:outputText value="Proxima Menstruação:" />
+                                <h:outputText value="#{item.novoCiclo}" />
+                            </p:panelGrid>
+                        </c:forEach>
+                    </p:layoutUnit>
+                </p:layout>
+                
+                
+                
+            </c:if>
+            
+            
             
         </h:body>
 

@@ -57,8 +57,8 @@ public class ControladorUsuario implements Serializable{
              rp.persist(u);
              Usuario b = rp.searchTxt(u.getNome());
              Grupo g = new Grupo();
-             g.setLider(b);
-             g.setNomeGrupo(b.getNome());
+             g.setLider(ur);
+             g.setNomeGrupo(ur.getNome());
              g.setEstagiarios(b);
              rg.persist(g);
           

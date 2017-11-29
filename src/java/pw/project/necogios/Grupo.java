@@ -22,7 +22,7 @@ import org.hibernate.annotations.CascadeType;
  */
 
 @Entity
-@Table(name="Grupo")
+@Table(name="grupo")
 @ManagedBean(name = "grupo")
 @RequestScoped
 public class Grupo {
@@ -31,11 +31,9 @@ public class Grupo {
    private int id;
    
    @ManyToOne
-   @Cascade(value = CascadeType.DELETE)
    private Usuario estagiarios;
    
    @ManyToOne
-   @Cascade(value = CascadeType.DELETE)
    private Usuario lider;
    
    @Column(name="nomeGrupo", length = 100)

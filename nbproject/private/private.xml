@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Denis%20Gois/Documents/NetBeansProjects/Java-web-Projeto-II---Desgosto/src/java/pw/project/necogios/Usuario.java</file>
-            <file>file:/C:/Users/Denis%20Gois/Documents/NetBeansProjects/Java-web-Projeto-II---Desgosto/src/java/pw/project/controladores/ControladorUsuario.java</file>
             <file>file:/C:/Users/Denis%20Gois/Documents/NetBeansProjects/Java-web-Projeto-II---Desgosto/web/index.xhtml</file>
             <file>file:/C:/Users/Denis%20Gois/Documents/NetBeansProjects/Java-web-Projeto-II---Desgosto/src/java/pw/project/necogios/Grupo.java</file>
-            <file>file:/C:/Users/Denis%20Gois/Documents/NetBeansProjects/Java-web-Projeto-II---Desgosto/web/novoEstagiario.xhtml</file>
+            <file>file:/C:/Users/Denis%20Gois/Documents/NetBeansProjects/Java-web-Projeto-II---Desgosto/web/home.xhtml</file>
+            <file>file:/C:/Users/Denis%20Gois/Documents/NetBeansProjects/Java-web-Projeto-II---Desgosto/src/java/pw/project/controladores/ControladorMulher.java</file>
             <file>file:/C:/Users/Denis%20Gois/Documents/NetBeansProjects/Java-web-Projeto-II---Desgosto/src/java/pw/project/repositorios/RepositorioGrupo.java</file>
         </group>
     </open-files>

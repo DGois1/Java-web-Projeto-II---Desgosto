@@ -18,7 +18,7 @@ public class RepositorioGrupo implements InterfaceGeral<Grupo> {
     @Override
     public Grupo search(int codigo) {
         try{
-        return (Grupo)((List<Grupo>)DaoManagerHiber.recover("from Grupo where idlider="+codigo)).get(0);
+        return (Grupo)((List<Grupo>)DaoManagerHiber.recover("from grupo where estagiarios_id="+codigo+"")).get(0);
         }catch(IndexOutOfBoundsException e){
             return null;
         }
@@ -36,11 +36,15 @@ public class RepositorioGrupo implements InterfaceGeral<Grupo> {
 
     @Override
     public Grupo searchTxt(String t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+        return (Grupo)((List<Grupo>)DaoManagerHiber.recover("from grupo where nomeGrupo='"+t+"'")).get(0);
+        }catch(IndexOutOfBoundsException e){
+            return null;
+        }
     }
 
     @Override
     public List<Grupo> listAll() {
-        return DaoManagerHiber.recover("from Consulta");    
+        return DaoManagerHiber.recover("from grupo");    
     }
 }
